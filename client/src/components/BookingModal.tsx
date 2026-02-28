@@ -114,6 +114,8 @@ export function BookingModal({ open, onOpenChange, defaultService }: BookingModa
                       <SelectItem value="Individual Therapy">Individual Therapy</SelectItem>
                       <SelectItem value="Couples Therapy">Couples Therapy</SelectItem>
                       <SelectItem value="Family Therapy">Family Therapy</SelectItem>
+                      <SelectItem value="SOS Session">SOS Session (Immediate)</SelectItem>
+                      <SelectItem value="Free 15min Call">Free 15min Discovery Call</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />

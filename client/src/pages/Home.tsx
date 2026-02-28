@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Leaf, Heart, Users, User, Mail, MapPin, Phone, Instagram, Facebook, Loader2 } from "lucide-react";
+import { Leaf, Heart, Users, User, Mail, MapPin, Phone, Instagram, Facebook, Loader2, Zap, Clock, ShieldCheck } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -38,72 +38,70 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col overflow-x-hidden">
+    <div className="min-h-screen bg-[#F9F7F2] text-[#2C3E50] flex flex-col overflow-x-hidden">
       {/* Navbar */}
-      <nav className="fixed w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/50 transition-all duration-300">
+      <nav className="fixed w-full z-50 bg-[#F9F7F2]/80 backdrop-blur-md border-b border-[#E5E1D8] transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Leaf className="w-8 h-8 text-primary" />
-            <span className="font-display font-bold text-2xl tracking-wide text-primary">STILLPOINT THERAPY</span>
+            <span className="font-serif font-bold text-2xl tracking-widest text-[#5D6D7E]">STILLPOINT THERAPY</span>
           </div>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium uppercase tracking-widest text-foreground/80">
-            <a href="#about" className="hover:text-primary transition-colors">About</a>
-            <a href="#services" className="hover:text-primary transition-colors">Services</a>
-            <a href="#testimonials" className="hover:text-primary transition-colors">Testimonials</a>
-            <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
+          <div className="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-[0.2em] text-[#5D6D7E]">
+            <a href="#about" className="hover:text-[#A0522D] transition-colors">About</a>
+            <a href="#services" className="hover:text-[#A0522D] transition-colors">Services</a>
+            <a href="#testimonials" className="hover:text-[#A0522D] transition-colors">Resources</a>
+            <a href="#contact" className="hover:text-[#A0522D] transition-colors">Contact</a>
           </div>
-          <Button 
-            onClick={() => handleBookNow("Individual Therapy")}
-            className="rounded-full px-6 bg-primary hover:bg-primary/90 shadow-md hover:shadow-lg transition-all text-primary-foreground"
-          >
-            Let's Connect
-          </Button>
+          <div className="flex items-center gap-4">
+             <div className="hidden sm:flex gap-3">
+                <Instagram className="w-4 h-4 text-[#5D6D7E] hover:text-[#A0522D] cursor-pointer" />
+                <Facebook className="w-4 h-4 text-[#5D6D7E] hover:text-[#A0522D] cursor-pointer" />
+             </div>
+          </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-20 lg:pt-0 min-h-screen flex items-center relative">
-        <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-0 min-h-[calc(100vh-5rem)]">
-          {/* Left: Image */}
+      <section className="pt-24 lg:pt-0 min-h-screen flex items-center relative overflow-hidden">
+        {/* Decorative Circles from the picture */}
+        <div className="absolute top-20 right-[-10%] w-[40rem] h-[40rem] bg-white rounded-full opacity-50 -z-10"></div>
+        <div className="absolute bottom-[-10%] left-[-5%] w-[30rem] h-[30rem] bg-[#E5E1D8] rounded-full opacity-30 -z-10"></div>
+
+        <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
+          {/* Left: Image with Arch */}
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="p-6 md:p-12 lg:pr-0 flex items-center justify-center order-2 md:order-1"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="p-6 flex items-center justify-center order-2 md:order-1"
           >
-            <div className="w-full max-w-md aspect-[4/5] rounded-t-[12rem] overflow-hidden shadow-2xl relative border-8 border-background/50">
-              <img 
-                src={heroImg} 
-                alt="Calm minimal setting" 
-                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent mix-blend-overlay"></div>
+            <div className="relative">
+               {/* Rounded arch matching the picture exactly */}
+               <div className="w-[320px] sm:w-[400px] aspect-[4/5] rounded-t-full overflow-hidden shadow-xl border-[12px] border-white relative z-10">
+                  <img 
+                    src={heroImg} 
+                    alt="Therapist profile" 
+                    className="w-full h-full object-cover" 
+                  />
+               </div>
+               {/* Rust/Terracotta circle overlay as seen in design */}
+               <div className="absolute -top-4 -left-4 w-32 h-32 bg-[#A0522D]/20 rounded-full -z-0 blur-xl"></div>
             </div>
           </motion.div>
 
-          {/* Right: Curved Shape & Text */}
+          {/* Right: Floating Content Box */}
           <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="md:order-2 flex flex-col justify-center px-6 py-16 md:p-16 lg:p-24 relative"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="md:order-2 px-6 flex flex-col items-start"
           >
-            {/* Background shape only visible on md+ */}
-            <div className="hidden md:block absolute right-0 top-0 bottom-0 w-full bg-accent/40 rounded-l-[12rem] -z-10 shadow-inner"></div>
-            
-            <span className="text-secondary font-bold tracking-widest uppercase mb-4 text-sm flex items-center gap-2">
-              <Heart className="w-4 h-4" /> Welcome to Stillpoint
-            </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display leading-[1.1] mb-6 text-foreground">
-              Our Therapy & <br/><span className="text-primary italic">Counselling</span> Services
-            </h1>
-            <p className="text-foreground/70 text-lg mb-10 leading-relaxed max-w-md">
-              We provide a safe, warm, and nurturing space to help you navigate life's challenges. Discover balance, healing, and your true self.
-            </p>
-            <div>
+            <div className="bg-white/80 backdrop-blur-sm p-12 lg:p-16 rounded-[4rem] shadow-sm border border-white/50 max-w-lg relative">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#2C3E50] leading-tight mb-8">
+                Our Therapy & <br/>Counselling <br/>Services
+              </h1>
               <Button 
                 onClick={() => handleBookNow("Individual Therapy")}
-                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground text-lg py-7 px-10 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+                className="bg-[#E5E1D8] hover:bg-[#D8D4CA] text-[#2C3E50] rounded-full px-10 py-6 text-sm font-semibold uppercase tracking-widest shadow-none transition-all"
               >
                 Let's Connect
               </Button>
@@ -112,68 +110,100 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Special Offers / Branding Section */}
+      <section className="py-12 bg-white/40 border-y border-[#E5E1D8]">
+        <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-8 md:gap-24">
+           <motion.div 
+             whileHover={{ scale: 1.05 }}
+             onClick={() => handleBookNow("SOS Session")}
+             className="flex items-center gap-4 cursor-pointer group"
+           >
+              <div className="w-14 h-14 rounded-full bg-[#A0522D] flex items-center justify-center text-white shadow-lg group-hover:bg-[#8B4513] transition-colors">
+                 <Zap className="w-6 h-6 animate-pulse" />
+              </div>
+              <div>
+                 <h4 className="font-bold text-[#A0522D] text-lg">SOS SESSION</h4>
+                 <p className="text-xs uppercase tracking-widest text-[#5D6D7E]">Immediate Support</p>
+              </div>
+           </motion.div>
+
+           <motion.div 
+             whileHover={{ scale: 1.05 }}
+             onClick={() => handleBookNow("Free 15min Call")}
+             className="flex items-center gap-4 cursor-pointer group"
+           >
+              <div className="w-14 h-14 rounded-full bg-[#7E8D85] flex items-center justify-center text-white shadow-lg group-hover:bg-[#6B7A72] transition-colors">
+                 <Clock className="w-6 h-6" />
+              </div>
+              <div>
+                 <h4 className="font-bold text-[#7E8D85] text-lg">FREE 15MIN CALL</h4>
+                 <p className="text-xs uppercase tracking-widest text-[#5D6D7E]">First Time Discovery</p>
+              </div>
+           </motion.div>
+        </div>
+      </section>
+
       {/* Services Section */}
-      <section id="services" className="py-24 bg-card relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="services" className="py-24 bg-[#F9F7F2]">
+        <div className="max-w-7xl mx-auto px-4 text-center">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="mb-20"
           >
-            <h2 className="text-sm font-bold text-secondary tracking-[0.2em] uppercase mb-4">Building a Better Future Together</h2>
-            <h3 className="text-4xl md:text-5xl font-display text-primary max-w-2xl mx-auto leading-tight">
-              Compassionate care tailored to your unique journey
-            </h3>
+            <p className="text-xs font-bold text-[#5D6D7E] tracking-[0.4em] uppercase mb-6 flex justify-between items-center max-w-4xl mx-auto">
+               <span>YOUR JOURNEY</span>
+               <span className="text-lg normal-case font-serif tracking-normal text-[#2C3E50]">BUILDING A BETTER FUTURE TOGETHER</span>
+               <span>STARTS HERE</span>
+            </p>
+            <p className="text-[#5D6D7E] max-w-2xl mx-auto text-sm leading-relaxed opacity-80">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Family Therapy",
-                icon: <Users className="w-6 h-6" />,
-                desc: "Navigate family dynamics, improve communication, and rebuild trust within your family system.",
-                img: "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=1000&auto=format&fit=crop", // family walking outdoors
+                title: "FAMILY THERAPY",
+                icon: <Users className="w-10 h-10" />,
+                color: "bg-[#7E8D85]", // Sage
               },
               {
-                title: "Individual Therapy",
-                icon: <User className="w-6 h-6" />,
-                desc: "One-on-one sessions to process emotions, manage anxiety, and cultivate personal growth.",
-                img: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=80&w=1000&auto=format&fit=crop", // individual looking peaceful
+                title: "INDIVIDUAL THERAPY",
+                icon: <User className="w-10 h-10" />,
+                color: "bg-[#E5E1D8]", // Beige
               },
               {
-                title: "Couples Therapy",
-                icon: <Heart className="w-6 h-6" />,
-                desc: "Strengthen your bond, resolve conflicts, and find a deeper connection with your partner.",
-                img: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1000&auto=format&fit=crop", // couple holding hands
+                title: "COUPLES THERAPY",
+                icon: <Heart className="w-10 h-10" />,
+                color: "bg-[#7E8D85]", // Sage
               }
             ].map((service, idx) => (
               <motion.div 
                 key={service.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.2, duration: 0.6 }}
-                className="group flex flex-col bg-background rounded-t-[8rem] rounded-b-3xl p-4 pb-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-border/50 relative overflow-hidden"
+                transition={{ delay: idx * 0.2 }}
+                className="group"
               >
-                <div className="aspect-[3/4] w-full rounded-t-[8rem] rounded-b-xl overflow-hidden mb-6 relative">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-primary/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className={`aspect-[3/4] w-full rounded-t-full flex items-center justify-center mb-6 shadow-sm border border-white/50 transition-all group-hover:shadow-xl ${service.color}`}>
+                   <div className="text-[#2C3E50] opacity-60 group-hover:opacity-100 transform transition-transform group-hover:scale-110">
+                      {service.icon}
+                   </div>
                 </div>
-                <div className="px-4 flex flex-col flex-1">
-                  <div className="flex justify-center mb-4 text-secondary">
-                    <div className="p-3 bg-secondary/10 rounded-full">{service.icon}</div>
-                  </div>
-                  <h4 className="text-2xl font-display text-center mb-3 text-foreground">{service.title}</h4>
-                  <p className="text-foreground/70 text-center mb-8 flex-1">{service.desc}</p>
-                  <Button 
+                <div className="bg-white p-8 rounded-b-3xl shadow-sm">
+                  <h4 className="text-xs font-bold tracking-[0.2em] mb-4 text-[#5D6D7E]">{service.title}</h4>
+                  <p className="text-[#5D6D7E] text-xs leading-loose mb-6">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+                  <button 
                     onClick={() => handleBookNow(service.title)}
-                    variant="outline" 
-                    className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-xl py-6 text-lg transition-colors"
+                    className="text-[10px] font-bold tracking-widest uppercase border-b border-[#2C3E50] pb-1 hover:text-[#A0522D] hover:border-[#A0522D] transition-all"
                   >
                     Book Now
-                  </Button>
+                  </button>
                 </div>
               </motion.div>
             ))}
@@ -182,81 +212,35 @@ export default function Home() {
       </section>
 
       {/* Testimonial Section */}
-      <section id="testimonials" className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-white/10 blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-black/10 blur-3xl"></div>
-        
-        <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="flex justify-center mb-8">
-              <Leaf className="w-12 h-12 text-primary-foreground/50" />
-            </div>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-display italic leading-tight mb-8">
-              "StillPoint Therapy created a safe space for me to heal. I finally feel like I have the tools to move forward."
-            </h2>
-            <p className="text-lg font-medium tracking-wider uppercase text-primary-foreground/80">— Sarah M.</p>
-          </motion.div>
+      <section className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+           <div className="flex justify-center gap-1 mb-8 text-[#E5E1D8]">
+              {[...Array(5)].map((_, i) => <ShieldCheck key={i} className="w-4 h-4 fill-current" />)}
+           </div>
+           <h2 className="text-3xl md:text-4xl font-serif text-[#2C3E50] leading-relaxed mb-12 italic">
+             “StillPoint Therapy Created A Safe Space Where I Felt Safe, Seen, And Truly Heard. I’ve Grown So Much In The Past Few Month, And I’m Finally Starting To Feel Like Myself Again.”
+           </h2>
+           <p className="text-sm font-bold tracking-[0.3em] uppercase text-[#2C3E50]">BREAH DESIGNS</p>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-background relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-4xl md:text-5xl font-display mb-6 text-foreground">Get in Touch</h2>
-              <p className="text-foreground/70 mb-10 text-lg">
-                Whether you're ready to book your first session or just have some questions, we're here to help. Reach out to us using the form.
-              </p>
-              
-              <div className="space-y-6">
-                <div className="flex items-center gap-4 text-foreground/80">
-                  <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-primary">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold">Location</h4>
-                    <p>123 Wellness Ave, Serenity Suite</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4 text-foreground/80">
-                  <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-primary">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold">Email</h4>
-                    <p>hello@stillpointtherapy.com</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4 text-foreground/80">
-                  <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-primary">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold">Phone</h4>
-                    <p>(555) 123-4567</p>
-                  </div>
+      <section id="contact" className="py-24 bg-[#F9F7F2]">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="bg-white rounded-[4rem] p-12 md:p-20 shadow-sm border border-[#E5E1D8]">
+            <div className="grid md:grid-cols-2 gap-16">
+              <div>
+                <h2 className="text-4xl font-serif mb-8 text-[#2C3E50]">Connect With Us</h2>
+                <p className="text-[#5D6D7E] mb-12 leading-loose">
+                  We are here to support your journey. Please fill out the form or reach out via our contact details.
+                </p>
+                <div className="space-y-4 text-sm text-[#5D6D7E] tracking-wider uppercase">
+                   <p>123 Serenity Way, Suite 100</p>
+                   <p>hello@stillpoint.com</p>
+                   <p>(+1) 234 567 890</p>
                 </div>
               </div>
-            </motion.div>
 
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-card p-8 md:p-10 rounded-[2rem] shadow-xl border border-border/50"
-            >
               <Form {...contactForm}>
                 <form onSubmit={contactForm.handleSubmit(onContactSubmit)} className="space-y-6">
                   <FormField
@@ -264,9 +248,8 @@ export default function Home() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-foreground/80">Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Your name" className="bg-background py-6 rounded-xl" {...field} />
+                          <Input placeholder="NAME" className="border-0 border-b border-[#E5E1D8] rounded-none px-0 bg-transparent focus-visible:ring-0 focus-visible:border-[#A0522D] text-xs tracking-widest" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -277,9 +260,8 @@ export default function Home() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-foreground/80">Email</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="Your email address" className="bg-background py-6 rounded-xl" {...field} />
+                          <Input placeholder="EMAIL" className="border-0 border-b border-[#E5E1D8] rounded-none px-0 bg-transparent focus-visible:ring-0 focus-visible:border-[#A0522D] text-xs tracking-widest" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -290,11 +272,10 @@ export default function Home() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-foreground/80">Message</FormLabel>
                         <FormControl>
                           <Textarea 
-                            placeholder="How can we help you?" 
-                            className="bg-background min-h-[120px] rounded-xl resize-none" 
+                            placeholder="YOUR MESSAGE" 
+                            className="border-0 border-b border-[#E5E1D8] rounded-none px-0 bg-transparent focus-visible:ring-0 focus-visible:border-[#A0522D] text-xs tracking-widest min-h-[80px] resize-none" 
                             {...field} 
                           />
                         </FormControl>
@@ -304,66 +285,17 @@ export default function Home() {
                   />
                   <Button 
                     type="submit" 
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 rounded-xl py-6 text-lg font-medium"
+                    className="w-full bg-[#2C3E50] hover:bg-[#1A252F] text-white rounded-full py-6 text-xs font-bold tracking-[0.3em] uppercase"
                     disabled={isSubmittingContact}
                   >
-                    {isSubmittingContact ? (
-                      <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Sending...</>
-                    ) : (
-                      "Send Message"
-                    )}
+                    {isSubmittingContact ? "SENDING..." : "SEND MESSAGE"}
                   </Button>
                 </form>
               </Form>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-foreground text-background py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
-              <Leaf className="w-8 h-8 text-primary" />
-              <span className="font-display font-bold text-2xl tracking-wide">STILLPOINT THERAPY</span>
-            </div>
-            <p className="text-background/70 max-w-sm mb-8 leading-relaxed">
-              Guiding you toward inner peace, resilience, and personal growth with compassionate, professional care.
-            </p>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors text-background">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors text-background">
-                <Facebook className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-          
-          <div>
-            <h4 className="font-display text-xl mb-6">Quick Links</h4>
-            <ul className="space-y-4 text-background/70">
-              <li><a href="#about" className="hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Our Services</a></li>
-              <li><a href="#testimonials" className="hover:text-primary transition-colors">Testimonials</a></li>
-              <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-display text-xl mb-6">Services</h4>
-            <ul className="space-y-4 text-background/70">
-              <li><a href="#" onClick={(e) => { e.preventDefault(); handleBookNow("Individual Therapy"); }} className="hover:text-primary transition-colors">Individual Therapy</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); handleBookNow("Couples Therapy"); }} className="hover:text-primary transition-colors">Couples Therapy</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); handleBookNow("Family Therapy"); }} className="hover:text-primary transition-colors">Family Therapy</a></li>
-            </ul>
-          </div>
-        </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-background/20 text-center text-background/50 text-sm">
-          &copy; {new Date().getFullYear()} StillPoint Therapy. All rights reserved.
-        </div>
-      </footer>
 
       <BookingModal 
         open={isBookingOpen} 
