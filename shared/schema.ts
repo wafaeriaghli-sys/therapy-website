@@ -16,6 +16,7 @@ export const bookings = pgTable("bookings", {
   email: text("email").notNull(),
   service: text("service").notNull(),
   date: text("date").notNull(),
+  time: text("time"),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
