@@ -122,7 +122,10 @@ export default function Home() {
                  <Zap className="w-6 h-6 animate-pulse" />
               </div>
               <div>
-                 <h4 className="font-bold text-[#A0522D] text-lg">SOS SESSION</h4>
+                 <div className="flex items-center gap-2">
+                    <h4 className="font-bold text-[#A0522D] text-lg">SOS SESSION</h4>
+                    <span className="text-xs font-serif italic text-[#A0522D]">$200</span>
+                 </div>
                  <p className="text-xs uppercase tracking-widest text-[#5D6D7E]">Immediate Support</p>
               </div>
            </motion.div>
@@ -166,18 +169,21 @@ export default function Home() {
             {[
               {
                 title: "FAMILY THERAPY",
-                icon: <Users className="w-10 h-10" />,
+                icon: <Users className="w-8 h-8" />,
                 color: "bg-[#7E8D85]", // Sage
+                price: "$150",
               },
               {
                 title: "INDIVIDUAL THERAPY",
-                icon: <User className="w-10 h-10" />,
+                icon: <User className="w-8 h-8" />,
                 color: "bg-[#E5E1D8]", // Beige
+                price: "$120",
               },
               {
                 title: "COUPLES THERAPY",
-                icon: <Heart className="w-10 h-10" />,
+                icon: <Heart className="w-8 h-8" />,
                 color: "bg-[#7E8D85]", // Sage
+                price: "$180",
               }
             ].map((service, idx) => (
               <motion.div 
@@ -188,13 +194,16 @@ export default function Home() {
                 transition={{ delay: idx * 0.2 }}
                 className="group"
               >
-                <div className={`aspect-[3/4] w-full rounded-t-full flex items-center justify-center mb-6 shadow-sm border border-white/50 transition-all group-hover:shadow-xl ${service.color}`}>
+                <div className={`aspect-[4/3] w-full rounded-t-full flex items-center justify-center mb-6 shadow-sm border border-white/50 transition-all group-hover:shadow-xl ${service.color}`}>
                    <div className="text-[#2C3E50] opacity-60 group-hover:opacity-100 transform transition-transform group-hover:scale-110">
                       {service.icon}
                    </div>
                 </div>
                 <div className="bg-white p-8 rounded-b-3xl shadow-sm">
-                  <h4 className="text-xs font-bold tracking-[0.2em] mb-4 text-[#5D6D7E]">{service.title}</h4>
+                  <div className="flex justify-between items-center mb-4">
+                    <h4 className="text-xs font-bold tracking-[0.2em] text-[#5D6D7E]">{service.title}</h4>
+                    <span className="text-xs font-serif italic text-[#A0522D]">{service.price}</span>
+                  </div>
                   <p className="text-[#5D6D7E] text-xs leading-loose mb-6">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   </p>
