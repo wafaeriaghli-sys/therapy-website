@@ -95,13 +95,13 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="md:order-2 px-6 flex flex-col items-start"
           >
-            <div className="bg-white/80 backdrop-blur-sm p-12 lg:p-16 rounded-[4rem] shadow-sm border border-white/50 max-w-lg relative">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#2C3E50] leading-tight mb-8">
+            <div className="bg-[#E5E1D8]/90 backdrop-blur-sm p-12 lg:p-16 rounded-[4rem] shadow-sm border border-white/50 max-w-lg relative">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#5D6D7E] leading-tight mb-8">
                 Our Therapy & <br/>Counselling <br/>Services
               </h1>
               <Button 
                 onClick={() => handleBookNow("Individual Therapy")}
-                className="bg-[#E5E1D8] hover:bg-[#D8D4CA] text-[#2C3E50] rounded-full px-10 py-6 text-sm font-semibold uppercase tracking-widest shadow-none transition-all"
+                className="bg-[#A0522D] hover:bg-[#8B4513] text-white rounded-full px-10 py-6 text-sm font-semibold uppercase tracking-widest shadow-lg hover:shadow-xl transition-all"
               >
                 Let's Connect
               </Button>
