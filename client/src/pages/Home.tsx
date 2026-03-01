@@ -13,7 +13,7 @@ import { useCreateContact } from "@/hooks/use-contact";
 import { type ContactInput } from "@shared/routes";
 import { insertContactMessageSchema } from "@shared/schema";
 
-import heroImg from "@assets/WhatsApp_Image_2026-02-28_at_02.57.39_1772247601264.jpeg";
+import heroImg from "@assets/ChatGPT_Image_Jan_24,_2026,_03_54_35_AM_1772338735947.png";
 
 export default function Home() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -76,11 +76,11 @@ export default function Home() {
           >
             <div className="relative">
                {/* Rounded arch matching the picture exactly */}
-               <div className="w-[320px] sm:w-[400px] aspect-[4/5] rounded-t-full overflow-hidden shadow-xl border-[12px] border-white relative z-10">
+               <div className="w-[320px] sm:w-[400px] rounded-t-full overflow-hidden shadow-xl border-[12px] border-white relative z-10">
                   <img 
                     src={heroImg} 
                     alt="Therapist profile" 
-                    className="w-full h-full object-cover" 
+                    className="w-full h-auto object-contain" 
                   />
                </div>
                {/* Rust/Terracotta circle overlay as seen in design */}
