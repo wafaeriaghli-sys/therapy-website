@@ -168,22 +168,34 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "FAMILY THERAPY",
-                icon: <Users className="w-8 h-8" />,
-                color: "bg-[#7E8D85]", // Sage
-                price: "$150",
-              },
-              {
                 title: "INDIVIDUAL THERAPY",
-                icon: <User className="w-8 h-8" />,
+                icon: <div className="relative w-12 h-12 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-[#E5E1D8] rounded-full opacity-40 scale-150"></div>
+                  <User className="w-8 h-8 text-[#5D6D7E] relative z-10" />
+                </div>,
                 color: "bg-[#E5E1D8]", // Beige
                 price: "$120",
+                duration: "50 MIN"
               },
               {
                 title: "COUPLES THERAPY",
-                icon: <Heart className="w-8 h-8" />,
-                color: "bg-[#7E8D85]", // Sage
+                icon: <div className="relative w-12 h-12 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-[#A0522D] rounded-full opacity-20 scale-150 rotate-45"></div>
+                  <Heart className="w-8 h-8 text-[#A0522D] relative z-10" />
+                </div>,
+                color: "bg-[#F4EBE8]", // Soft Terracotta tint
                 price: "$180",
+                duration: "50 MIN"
+              },
+              {
+                title: "FAMILY THERAPY",
+                icon: <div className="relative w-12 h-12 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-[#7E8D85] rounded-full opacity-30 scale-150 -rotate-12"></div>
+                  <Users className="w-8 h-8 text-[#5D6D7E] relative z-10" />
+                </div>,
+                color: "bg-[#7E8D85]", // Sage
+                price: "$150",
+                duration: "50 MIN"
               }
             ].map((service, idx) => (
               <motion.div 
@@ -195,24 +207,29 @@ export default function Home() {
                 className="group"
               >
                 <div className={`aspect-[4/3] w-full rounded-t-full flex items-center justify-center mb-6 shadow-sm border border-white/50 transition-all group-hover:shadow-xl ${service.color}`}>
-                   <div className="text-[#2C3E50] opacity-60 group-hover:opacity-100 transform transition-transform group-hover:scale-110">
+                   <div className="transform transition-transform group-hover:scale-110">
                       {service.icon}
                    </div>
                 </div>
-                <div className="bg-white p-8 rounded-b-3xl shadow-sm">
-                  <div className="flex justify-between items-center mb-4">
-                    <h4 className="text-xs font-bold tracking-[0.2em] text-[#5D6D7E]">{service.title}</h4>
-                    <span className="text-xs font-serif italic text-[#A0522D]">{service.price}</span>
+                <div className="bg-white p-8 rounded-b-3xl shadow-sm border-t border-[#F9F7F2]">
+                  <div className="flex justify-between items-start mb-2">
+                    <h4 className="text-xs font-bold tracking-[0.2em] text-[#5D6D7E] text-left">{service.title}</h4>
+                    <div className="text-right">
+                      <span className="block text-xs font-bold text-[#A0522D]">{service.price}</span>
+                      <span className="block text-[9px] tracking-widest text-[#5D6D7E] opacity-60">{service.duration}</span>
+                    </div>
                   </div>
-                  <p className="text-[#5D6D7E] text-xs leading-loose mb-6">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  <p className="text-[#5D6D7E] text-xs leading-loose mb-6 text-left">
+                    Professional support tailored to your needs. We provide a space for growth and healing.
                   </p>
-                  <button 
-                    onClick={() => handleBookNow(service.title)}
-                    className="text-[10px] font-bold tracking-widest uppercase border-b border-[#2C3E50] pb-1 hover:text-[#A0522D] hover:border-[#A0522D] transition-all"
-                  >
-                    Book Now
-                  </button>
+                  <div className="text-left">
+                    <button 
+                      onClick={() => handleBookNow(service.title)}
+                      className="text-[10px] font-bold tracking-widest uppercase border-b border-[#2C3E50] pb-1 hover:text-[#A0522D] hover:border-[#A0522D] transition-all"
+                    >
+                      Book Now
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             ))}
