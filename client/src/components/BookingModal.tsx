@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { insertBookingSchema } from "@shared/schema";
 import { type BookingInput } from "@shared/routes";
 import { useCreateBooking } from "@/hooks/use-bookings";
+import { SiWhatsapp } from "react-icons/si";
 import {
   Dialog,
   DialogContent,
@@ -37,9 +38,10 @@ export function BookingModal({ open, onOpenChange, defaultService }: BookingModa
     resolver: zodResolver(insertBookingSchema),
     defaultValues: {
       name: "",
-      email: "",
+      phone: "",
       service: defaultService || "Individual Therapy",
       date: "",
+      time: "",
     },
   });
 
@@ -49,7 +51,17 @@ export function BookingModal({ open, onOpenChange, defaultService }: BookingModa
     }
   }, [defaultService, form]);
 
+  const service = form.watch("service");
+  const isSOS = service === "SOS Session";
+
   const onSubmit = (data: BookingInput) => {
+    if (isSOS) {
+      const message = `Hello, I would like to book an SOS Session. My name is ${data.name} and my phone is ${data.phone}.`;
+      window.open(`https://wa.me/1234567890?text=${encodeURIComponent(message)}`, "_blank");
+      onOpenChange(false);
+      return;
+    }
+
     createBooking(data, {
       onSuccess: () => {
         form.reset();
@@ -64,7 +76,9 @@ export function BookingModal({ open, onOpenChange, defaultService }: BookingModa
         <DialogHeader>
           <DialogTitle className="text-2xl text-primary font-display">Book a Session</DialogTitle>
           <DialogDescription className="text-foreground/70">
-            Take the first step towards healing. Choose a service and date, and we'll confirm your appointment.
+            {isSOS 
+              ? "SOS sessions are handled directly via WhatsApp for immediate response."
+              : "Take the first step towards healing. Choose a service and date, and we'll confirm your appointment."}
           </DialogDescription>
         </DialogHeader>
 
@@ -86,12 +100,12 @@ export function BookingModal({ open, onOpenChange, defaultService }: BookingModa
             
             <FormField
               control={form.control}
-              name="email"
+              name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email Address</FormLabel>
+                  <FormLabel>Phone Number</FormLabel>
                   <FormControl>
-                    <Input type="email" placeholder="jane@example.com" className="bg-card" {...field} />
+                    <Input placeholder="+1 (555) 000-0000" className="bg-card" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -123,46 +137,55 @@ export function BookingModal({ open, onOpenChange, defaultService }: BookingModa
               )}
             />
 
-            <div className="grid grid-cols-2 gap-4">
-              <FormField
-                control={form.control}
-                name="date"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Preferred Date</FormLabel>
-                    <FormControl>
-                      <Input type="date" className="bg-card" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+            {!isSOS && (
+              <div className="grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2">
+                <FormField
+                  control={form.control}
+                  name="date"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Preferred Date</FormLabel>
+                      <FormControl>
+                        <Input type="date" className="bg-card" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
 
-              <FormField
-                control={form.control}
-                name="time"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Preferred Time</FormLabel>
-                    <FormControl>
-                      <Input type="time" className="bg-card" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
+                <FormField
+                  control={form.control}
+                  name="time"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Preferred Time</FormLabel>
+                      <FormControl>
+                        <Input type="time" className="bg-card" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+            )}
 
             <div className="pt-4">
               <Button 
                 type="submit" 
-                className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 rounded-xl py-6 text-lg font-medium"
+                className={`w-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 rounded-xl py-6 text-lg font-medium flex items-center justify-center gap-2 ${
+                  isSOS ? "bg-[#25D366] hover:bg-[#128C7E] text-white" : "bg-secondary hover:bg-secondary/90 text-secondary-foreground"
+                }`}
                 disabled={isPending}
               >
                 {isPending ? (
                   <>
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                     Booking...
+                  </>
+                ) : isSOS ? (
+                  <>
+                    <SiWhatsapp className="w-5 h-5" />
+                    Book via WhatsApp
                   </>
                 ) : (
                   "Confirm Booking"

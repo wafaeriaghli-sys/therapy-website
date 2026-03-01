@@ -238,15 +238,30 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="bg-white rounded-[4rem] p-12 md:p-20 shadow-sm border border-[#E5E1D8]">
             <div className="grid md:grid-cols-2 gap-16">
-              <div>
-                <h2 className="text-4xl font-serif mb-8 text-[#2C3E50]">Connect With Us</h2>
-                <p className="text-[#5D6D7E] mb-12 leading-loose">
-                  We are here to support your journey. Please fill out the form or reach out via our contact details.
-                </p>
-                <div className="space-y-4 text-sm text-[#5D6D7E] tracking-wider uppercase">
-                   <p>123 Serenity Way, Suite 100</p>
-                   <p>hello@stillpoint.com</p>
-                   <p>(+1) 234 567 890</p>
+              <div className="space-y-6">
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=123+Serenity+Way+Suite+100" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 text-foreground/80 hover:text-primary transition-colors group"
+                >
+                  <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold">Location</h4>
+                    <p>123 Serenity Way, Suite 100</p>
+                    <p className="text-xs text-primary font-bold mt-1">View on Google Maps →</p>
+                  </div>
+                </a>
+                <div className="flex items-center gap-4 text-foreground/80">
+                  <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-primary">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold">Phone</h4>
+                    <p>(+1) 234 567 890</p>
+                  </div>
                 </div>
               </div>
 
@@ -266,11 +281,11 @@ export default function Home() {
                   />
                   <FormField
                     control={contactForm.control}
-                    name="email"
+                    name="phone"
                     render={({ field }) => (
                       <FormItem>
                         <FormControl>
-                          <Input placeholder="EMAIL" className="border-0 border-b border-[#E5E1D8] rounded-none px-0 bg-transparent focus-visible:ring-0 focus-visible:border-[#A0522D] text-xs tracking-widest" {...field} />
+                          <Input placeholder="PHONE NUMBER" className="border-0 border-b border-[#E5E1D8] rounded-none px-0 bg-transparent focus-visible:ring-0 focus-visible:border-[#A0522D] text-xs tracking-widest" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
