@@ -109,22 +109,21 @@ export default function Home() {
             className="md:order-2 px-6 flex flex-col items-start"
           >
             <div className="bg-white/50 backdrop-blur-3xl p-10 lg:p-16 rounded-[4.5rem] shadow-[0_30px_60px_rgba(0,0,0,0.03)] border border-white/80 max-w-xl relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-2 h-full bg-[#A0522D] shadow-[2px_0_10px_rgba(160,82,45,0.2)]"></div>
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#A0522D] shadow-[2px_0_10px_rgba(160,82,45,0.1)]"></div>
               
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1A1A1A] leading-[1.1] mb-10 font-black tracking-tight uppercase">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#A0522D] leading-[1.1] mb-10 font-black tracking-tight uppercase">
                 Fatigué de faire semblant que tout va bien ?
               </h1>
               
               <div className="relative mb-12">
-                <p className="text-[#3A4A5B] text-lg md:text-xl lg:text-2xl leading-relaxed font-serif italic text-pretty pl-8 relative">
-                  <span className="absolute left-0 top-[-10px] text-6xl text-[#A0522D] opacity-15 font-serif select-none">“</span>
-                  Je m'appelle <span className="text-[#4B5320] font-black not-italic border-b-2 border-[#8A9A5B]/30">Wafae El Oiriaghli</span>. Je suis psychothérapeute. Ma mission n'est pas de t'écouter hocher la tête, mais de te donner les outils pour que tu n'aies plus besoin de moi.
+                <p className="text-[#3A4A5B] text-lg md:text-xl lg:text-2xl leading-relaxed font-serif italic text-pretty pl-2 relative">
+                  Je m'appelle <span className="text-[#A0522D] font-black not-italic">Wafae El Oiriaghli</span>. Je suis psychothérapeute. Ma mission n'est pas de t'écouter hocher la tête, mais de te donner les outils pour que tu n'aies plus besoin de moi.
                 </p>
               </div>
 
               <Button 
                 onClick={() => handleBookNow("Individual Therapy")}
-                className="bg-[#A0522D] hover:bg-[#8B4513] text-white rounded-full px-14 py-9 text-[11px] font-black uppercase tracking-[0.4em] shadow-[0_20px_40px_rgba(160,82,45,0.3)] hover:shadow-[0_25px_50px_rgba(160,82,45,0.4)] hover:-translate-y-1 active:scale-95 transition-all w-full sm:w-auto"
+                className="bg-[#2C3E50] hover:bg-[#1A252F] text-white rounded-full px-14 py-9 text-[11px] font-black uppercase tracking-[0.4em] shadow-[0_20px_40px_rgba(44,62,80,0.2)] hover:shadow-[0_25px_50px_rgba(44,62,80,0.3)] hover:-translate-y-1 active:scale-95 transition-all w-full sm:w-auto"
               >
                 JE RÉSERVE MA SÉANCE
               </Button>
@@ -135,19 +134,17 @@ export default function Home() {
 
       {/* Floating 15min Call Reminder - Attention Grabbing */}
       <motion.div 
-        initial={{ x: -150, opacity: 0 }}
+        initial={{ x: 150, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 2.5, duration: 1, type: "spring", stiffness: 50 }}
-        className="fixed bottom-12 left-12 z-[100] hidden lg:block"
+        className="fixed bottom-12 right-12 z-[100] hidden lg:block"
       >
         <motion.div 
           animate={{ 
-            y: [0, -20, 0],
-            rotate: [0, -2, 2, 0],
-            scale: [1, 1.05, 1]
+            y: [0, -10, 0],
           }}
           transition={{ 
-            duration: 8,
+            duration: 6,
             repeat: Infinity,
             ease: "easeInOut"
           }}
@@ -155,18 +152,15 @@ export default function Home() {
           className="relative cursor-pointer group"
         >
           {/* Animated Multi-layered Glow */}
-          <div className="absolute inset-0 bg-[#7E8D85] rounded-[2.5rem] blur-3xl opacity-20 group-hover:opacity-60 transition-all duration-500 animate-pulse"></div>
-          <div className="absolute inset-0 bg-[#A0522D] rounded-[2.5rem] blur-xl opacity-5 group-hover:opacity-20 transition-all duration-500"></div>
+          <div className="absolute inset-0 bg-[#7E8D85] rounded-2xl blur-2xl opacity-10 group-hover:opacity-40 transition-all duration-500 animate-pulse"></div>
           
-          <div className="bg-[#7E8D85] text-white px-10 py-8 rounded-[2.5rem] shadow-[0_30px_60px_rgba(126,141,133,0.4)] border border-white/40 flex items-center gap-6 relative overflow-hidden group-hover:border-white/60 transition-all">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -mr-20 -mt-20 group-hover:scale-150 transition-transform duration-1000"></div>
-            <div className="w-16 h-16 rounded-[1.5rem] bg-white/25 backdrop-blur-md flex items-center justify-center shrink-0 shadow-[inset_0_2px_10px_rgba(255,255,255,0.2)] group-hover:rotate-12 transition-all duration-500 border border-white/20">
-              <Clock className="w-8 h-8 text-white drop-shadow-md" />
+          <div className="bg-[#7E8D85] text-white px-6 py-4 rounded-2xl shadow-[0_20px_40px_rgba(126,141,133,0.3)] border border-white/40 flex items-center gap-4 relative overflow-hidden group-hover:border-white/60 transition-all">
+            <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0 border border-white/10">
+              <Clock className="w-5 h-5 text-white" />
             </div>
             <div className="relative z-10">
-              <p className="text-[11px] font-black tracking-[0.3em] uppercase text-[#F2EDE4] mb-1.5 opacity-90">NOUVEAU ICI ?</p>
-              <p className="font-black text-xl leading-tight tracking-tight uppercase">15 MIN D'APPEL OFFERTES</p>
-              <div className="mt-3 h-1.5 w-0 group-hover:w-full bg-[#F4EBE8] transition-all duration-1000 rounded-full shadow-sm"></div>
+              <p className="text-[9px] font-black tracking-[0.2em] uppercase text-[#F2EDE4] mb-0.5 opacity-90">APPEL OFFERT</p>
+              <p className="font-black text-sm leading-tight tracking-tight uppercase">15 MINUTES</p>
             </div>
           </div>
         </motion.div>
