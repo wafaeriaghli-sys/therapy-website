@@ -88,7 +88,7 @@ export default function Home() {
             className="p-6 flex items-center justify-center order-2 md:order-1"
           >
             <div className="relative group">
-               <div className="w-[320px] sm:w-[460px] rounded-t-full overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.08)] border-[20px] border-white relative z-10 transition-all duration-1000 group-hover:scale-[1.01] group-hover:shadow-[0_50px_100px_rgba(0,0,0,0.1)]">
+               <div className="w-[320px] sm:w-[460px] rounded-t-full overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.08)] relative z-10 transition-all duration-1000 group-hover:scale-[1.01] group-hover:shadow-[0_50px_100px_rgba(0,0,0,0.1)]">
                   <img 
                     src={heroImg} 
                     alt="Wafae El Oiriaghli" 
@@ -108,25 +108,27 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.4 }}
             className="md:order-2 px-6 flex flex-col items-start"
           >
-            <div className="bg-white/50 backdrop-blur-3xl p-10 lg:p-16 rounded-[4.5rem] shadow-[0_30px_60px_rgba(0,0,0,0.03)] border border-white/80 max-w-xl relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-2 h-full bg-[#A0522D] shadow-[2px_0_10px_rgba(160,82,45,0.1)]"></div>
+            <div className="relative p-10 lg:p-16 max-w-xl group">
+              {/* Modern Decorative Frame based on Screenshot */}
+              <div className="absolute inset-0 border border-[#E5E1D8] rounded-[4rem] pointer-events-none"></div>
+              <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-24 h-48 bg-[#A0522D] rounded-full opacity-90"></div>
               
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1A1A1A] leading-[1.1] mb-10 font-black tracking-tight uppercase">
-                Fatigué de faire semblant que tout va bien ?
-              </h1>
-              
-              <div className="relative mb-12">
-                <p className="text-[#3A4A5B] text-lg md:text-xl lg:text-2xl leading-relaxed font-serif italic text-pretty pl-2 relative">
-                  Je m'appelle <span className="text-[#4B5320] font-black not-italic">Wafae El Oiriaghli</span>. Je suis psychothérapeute. Ma mission n'est pas de t'écouter hocher la tête, mais de te donner les outils pour que tu n'aies plus besoin de moi.
+              <div className="relative z-10">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#1A1A1A] leading-tight mb-8 font-medium tracking-tight">
+                  Fatigué de faire semblant que tout va bien ?
+                </h1>
+                
+                <p className="text-[#5D6D7E] text-lg md:text-xl leading-relaxed font-serif italic mb-10">
+                  Je m'appelle <span className="text-[#4B5320] font-bold not-italic">Wafae El Oiriaghli</span>. Je suis psychothérapeute. Ma mission n'est pas de t'écouter hocher la tête, mais de te donner les outils pour que tu n'aies plus besoin de moi.
                 </p>
-              </div>
 
-              <Button 
-                onClick={() => handleBookNow("Individual Therapy")}
-                className="bg-[#2C3E50] hover:bg-[#1A252F] text-white rounded-full px-14 py-9 text-[11px] font-black uppercase tracking-[0.4em] shadow-[0_20px_40px_rgba(44,62,80,0.2)] hover:shadow-[0_25px_50px_rgba(44,62,80,0.3)] hover:-translate-y-1 active:scale-95 transition-all w-full sm:w-auto"
-              >
-                JE RÉSERVE MA SÉANCE
-              </Button>
+                <Button 
+                  onClick={() => handleBookNow("Individual Therapy")}
+                  className="bg-[#E5E1D8] hover:bg-[#D9D5CC] text-[#1A1A1A] rounded-full px-10 py-6 text-[11px] font-medium uppercase tracking-widest transition-all shadow-sm border border-[#D9D5CC]/50"
+                >
+                  Let's Connect
+                </Button>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -151,6 +153,14 @@ export default function Home() {
           onClick={() => handleBookNow("Free 15min Call")}
           className="relative cursor-pointer group"
         >
+          {/* Tooltip Description on Hover */}
+          <div className="absolute bottom-full right-0 mb-4 w-64 p-4 bg-white rounded-2xl shadow-xl border border-[#E5E1D8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-[110]">
+            <p className="text-xs text-[#5D6D7E] leading-relaxed font-serif">
+              Vous hésitez ? Vous Avez des questions ? On se parle 15 minutes. C'est offert, sans engagement et totalement confidentiel.
+            </p>
+            <div className="absolute top-full right-8 w-3 h-3 bg-white border-r border-b border-[#E5E1D8] rotate-45 -mt-1.5"></div>
+          </div>
+
           {/* Animated Multi-layered Glow */}
           <div className="absolute inset-0 bg-[#7E8D85] rounded-2xl blur-2xl opacity-10 group-hover:opacity-40 transition-all duration-500 animate-pulse"></div>
           
@@ -172,8 +182,16 @@ export default function Home() {
            <motion.div 
              whileHover={{ scale: 1.05 }}
              onClick={() => handleBookNow("SOS Session")}
-             className="flex items-center gap-4 cursor-pointer group"
+             className="flex items-center gap-4 cursor-pointer group relative"
            >
+              {/* Tooltip Description on Hover */}
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-4 bg-white rounded-2xl shadow-xl border border-[#E5E1D8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
+                <p className="text-xs text-[#5D6D7E] leading-relaxed font-serif">
+                  Crise d'angoisse, rupture brutale ou saturation : Réservez votre créneau d'urgence maintenant.
+                </p>
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-r border-b border-[#E5E1D8] rotate-45 -mt-1.5"></div>
+              </div>
+
               <div className="w-14 h-14 rounded-full bg-[#A0522D] flex items-center justify-center text-white shadow-lg group-hover:bg-[#8B4513] transition-colors">
                  <Zap className="w-6 h-6 animate-pulse" />
               </div>
@@ -189,8 +207,16 @@ export default function Home() {
            <motion.div 
              whileHover={{ scale: 1.05 }}
              onClick={() => handleBookNow("Free 15min Call")}
-             className="flex items-center gap-4 cursor-pointer group"
+             className="flex items-center gap-4 cursor-pointer group relative"
            >
+              {/* Tooltip Description on Hover */}
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-4 bg-white rounded-2xl shadow-xl border border-[#E5E1D8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
+                <p className="text-xs text-[#5D6D7E] leading-relaxed font-serif">
+                  Vous hésitez ? Vous Avez des questions ? On se parle 15 minutes. C'est offert, sans engagement et totalement confidentiel.
+                </p>
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-r border-b border-[#E5E1D8] rotate-45 -mt-1.5"></div>
+              </div>
+
               <div className="w-14 h-14 rounded-full bg-[#7E8D85] flex items-center justify-center text-white shadow-lg group-hover:bg-[#6B7A72] transition-colors">
                  <Clock className="w-6 h-6" />
               </div>
