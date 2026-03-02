@@ -111,13 +111,13 @@ export default function Home() {
             <div className="bg-white/50 backdrop-blur-3xl p-10 lg:p-16 rounded-[4.5rem] shadow-[0_30px_60px_rgba(0,0,0,0.03)] border border-white/80 max-w-xl relative overflow-hidden group">
               <div className="absolute top-0 left-0 w-2 h-full bg-[#A0522D] shadow-[2px_0_10px_rgba(160,82,45,0.1)]"></div>
               
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#A0522D] leading-[1.1] mb-10 font-black tracking-tight uppercase">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1A1A1A] leading-[1.1] mb-10 font-black tracking-tight uppercase">
                 Fatigué de faire semblant que tout va bien ?
               </h1>
               
               <div className="relative mb-12">
                 <p className="text-[#3A4A5B] text-lg md:text-xl lg:text-2xl leading-relaxed font-serif italic text-pretty pl-2 relative">
-                  Je m'appelle <span className="text-[#A0522D] font-black not-italic">Wafae El Oiriaghli</span>. Je suis psychothérapeute. Ma mission n'est pas de t'écouter hocher la tête, mais de te donner les outils pour que tu n'aies plus besoin de moi.
+                  Je m'appelle <span className="text-[#4B5320] font-black not-italic">Wafae El Oiriaghli</span>. Je suis psychothérapeute. Ma mission n'est pas de t'écouter hocher la tête, mais de te donner les outils pour que tu n'aies plus besoin de moi.
                 </p>
               </div>
 
