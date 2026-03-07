@@ -237,13 +237,11 @@ export default function Home() {
             viewport={{ once: true }}
             className="mb-20"
           >
-            <p className="text-xs font-black text-[#4B5320] tracking-[0.4em] uppercase mb-6 flex justify-between items-center max-w-4xl mx-auto">
-               <span>VOTRE PARCOURS</span>
-               <span className="text-lg normal-case font-serif tracking-normal text-[#2C3E50]">CONSTRUIRE UN AVENIR MEILLEUR ENSEMBLE</span>
-               <span>COMMENCE ICI</span>
-            </p>
-            <p className="text-[#5D6D7E] max-w-2xl mx-auto text-sm leading-relaxed opacity-80 italic font-serif">
-              "Le plus beau cadeau que vous puissiez vous faire est de commencer à vous comprendre."
+            <h2 className="text-3xl md:text-4xl font-serif text-[#1A1A1A] leading-tight mb-6">
+              Le Changement Commence Quand Vous Êtes Prêt
+            </h2>
+            <p className="text-[#5D6D7E] max-w-2xl mx-auto text-sm leading-relaxed italic font-serif">
+              Trois approches. Trois solutions. Une seule certitude : vous ne serez plus jamais dans le même endroit.
             </p>
           </motion.div>
 
@@ -256,8 +254,9 @@ export default function Home() {
                   <User className="w-8 h-8 text-[#5D6D7E] relative z-10" />
                 </div>,
                 color: "bg-[#E5E1D8]", // Beige
-                price: "$120",
-                duration: "50 MIN"
+                price: "300 MAD",
+                duration: "50 MIN",
+                description: "Explorez vos patterns profonds, brisez les cycles répétitifs et découvrez enfin qui vous êtes vraiment. C'est votre moment."
               },
               {
                 title: "COUPLES THERAPY",
@@ -266,8 +265,9 @@ export default function Home() {
                   <Heart className="w-8 h-8 text-[#A0522D] relative z-10" />
                 </div>,
                 color: "bg-[#F4EBE8]", // Soft Terracotta tint
-                price: "$180",
-                duration: "50 MIN"
+                price: "500 MAD",
+                duration: "60 MIN",
+                description: "Retrouvez la connexion perdue. Au-delà des murs et des silences, réapprenez à vous voir l'un l'autre."
               },
               {
                 title: "FAMILY THERAPY",
@@ -276,8 +276,9 @@ export default function Home() {
                   <Users className="w-8 h-8 text-[#5D6D7E] relative z-10" />
                 </div>,
                 color: "bg-[#7E8D85]", // Sage
-                price: "$150",
-                duration: "50 MIN"
+                price: "600 MAD",
+                duration: "60 MIN",
+                description: "Guérissez ensemble. Transformez les blessures en forces, les conflits en compréhension, l'isolement en unité."
               }
             ].map((service, idx) => (
               <motion.div 
@@ -302,7 +303,7 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="text-[#5D6D7E] text-xs leading-loose mb-6 text-left">
-                    Un accompagnement professionnel adapté à vos besoins. Nous vous offrons un espace de croissance et de guérison.
+                    {service.description}
                   </p>
                   <div className="text-left">
                     <button 
@@ -326,7 +327,7 @@ export default function Home() {
               {[...Array(5)].map((_, i) => <ShieldCheck key={i} className="w-4 h-4 fill-current" />)}
            </div>
            <h2 className="text-3xl md:text-4xl font-serif text-[#2C3E50] leading-relaxed mb-12 italic">
-             “StillPoint Therapy a créé un espace sûr où je me suis sentie en sécurité, vue et vraiment entendue. J'ai tellement grandi ces derniers mois, et je commence enfin à me sentir à nouveau moi-même.”
+             "Après des années de doute, j'ai enfin trouvé quelqu'un qui m'écoute vraiment. Pas de jugement. Pas de platitudes. Juste des outils réels pour enfin avancer. Je suis un exemple vivant du changement qui est possible."
            </h2>
            <p className="text-sm font-bold tracking-[0.3em] uppercase text-[#2C3E50]">BREAH DESIGNS</p>
         </div>
