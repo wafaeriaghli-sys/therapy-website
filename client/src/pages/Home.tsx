@@ -126,7 +126,7 @@ export default function Home() {
                   onClick={() => handleBookNow("Individual Therapy")}
                   className="bg-[#E5E1D8] hover:bg-[#D9D5CC] text-[#1A1A1A] rounded-full px-10 py-6 text-[11px] font-medium uppercase tracking-widest transition-all shadow-sm border border-[#D9D5CC]/50"
                 >
-                  JE RESERVE MA SESSION
+                  Je Réserve Ma Séance
                 </Button>
               </div>
             </div>
@@ -154,24 +154,21 @@ export default function Home() {
           className="relative cursor-pointer group"
         >
           {/* Tooltip Description on Hover */}
-          <div className="absolute bottom-full right-0 mb-3 w-56 p-3 bg-white rounded-xl shadow-lg border border-[#E5E1D8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-[110]">
+          <div className="absolute bottom-full right-2 mb-4 w-64 p-4 bg-white rounded-2xl shadow-lg border border-[#E5E1D8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-[110]">
             <p className="text-xs text-[#5D6D7E] leading-relaxed font-serif">
-              Un appel découverte sans engagement. Parlons de vous, de vos enjeux, de vos espoirs.
+              Appel de découverte 15min gratuit. Parlons de vous, de vos enjeux, de vos espoirs. Sans engagement.
             </p>
-            <div className="absolute top-full right-6 w-2.5 h-2.5 bg-white border-r border-b border-[#E5E1D8] rotate-45 -mt-1"></div>
+            <div className="absolute top-full right-12 w-3 h-3 bg-white border-r border-b border-[#E5E1D8] rotate-45 -mt-1.5"></div>
           </div>
 
-          {/* Animated Multi-layered Glow */}
-          <div className="absolute inset-0 bg-[#7E8D85] rounded-xl blur-xl opacity-10 group-hover:opacity-30 transition-all duration-500 animate-pulse"></div>
+          {/* Animated Multi-layered Glow with Pulse */}
+          <div className="absolute inset-0 bg-[#7E8D85] rounded-full blur-2xl opacity-15 group-hover:opacity-40 transition-all duration-500 animate-pulse"></div>
           
-          <div className="bg-[#7E8D85] text-white px-4 py-3 rounded-xl shadow-[0_15px_30px_rgba(126,141,133,0.2)] border border-white/40 flex items-center gap-3 relative overflow-hidden group-hover:border-white/60 transition-all">
-            <div className="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0 border border-white/10">
-              <Gift className="w-4 h-4 text-white" />
-            </div>
-            <div className="relative z-10">
-              <p className="text-[8px] font-black tracking-[0.15em] uppercase text-[#F2EDE4] mb-0.5 opacity-90">CADEAU</p>
-              <p className="font-black text-xs leading-tight tracking-tight uppercase">15 MIN</p>
-            </div>
+          {/* Modern Circular Badge */}
+          <div className="bg-gradient-to-br from-[#7E8D85] to-[#6B7A72] text-white w-16 h-16 rounded-full shadow-[0_10px_30px_rgba(126,141,133,0.35)] border border-white/50 flex flex-col items-center justify-center relative overflow-hidden group-hover:border-white/70 group-hover:shadow-[0_15px_40px_rgba(126,141,133,0.4)] transition-all">
+            <div className="absolute inset-0 bg-white/5 rounded-full"></div>
+            <Gift className="w-6 h-6 text-white relative z-10" />
+            <p className="text-[7px] font-black tracking-wide uppercase text-white/90 mt-0.5 relative z-10">OFFERT</p>
           </div>
         </motion.div>
       </motion.div>
@@ -181,38 +178,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-8 md:gap-16">
            <motion.div 
              whileHover={{ scale: 1.05 }}
-             onClick={() => handleBookNow("SOS SESSION")}
-             className="flex items-center gap-4 cursor-pointer group relative"
-           >
-              {/* Tooltip Description on Hover */}
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-56 p-3 bg-white rounded-xl shadow-lg border border-[#E5E1D8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
-                <p className="text-xs text-[#5D6D7E] leading-relaxed font-serif">
-                  Urgence émotionnelle. Action immédiate. Retrouvez votre équilibre maintenant, pas demain.
-                </p>
-                <div className="absolute top-full left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-white border-r border-b border-[#E5E1D8] rotate-45 -mt-1"></div>
-              </div>
-
-              <div className="w-14 h-14 rounded-full bg-[#A0522D] flex items-center justify-center text-white shadow-lg group-hover:bg-[#8B4513] transition-colors">
-                 <Zap className="w-6 h-6 animate-pulse" />
-              </div>
-              <div>
-                 <div className="flex items-center gap-2">
-                    <h4 className="font-bold text-[#A0522D] text-lg">SOS SESSION</h4>
-                    <span className="text-xs font-serif italic text-[#A0522D]">200 MAD</span>
-                 </div>
-                 <p className="text-xs uppercase tracking-widest text-[#5D6D7E]">Soutien Immédiat</p>
-              </div>
-           </motion.div>
-
-           <motion.div 
-             whileHover={{ scale: 1.05 }}
              onClick={() => handleBookNow("DISCOVERY 15MIN CALL")}
              className="flex items-center gap-4 cursor-pointer group relative"
            >
               {/* Tooltip Description on Hover */}
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-56 p-3 bg-white rounded-xl shadow-lg border border-[#E5E1D8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
                 <p className="text-xs text-[#5D6D7E] leading-relaxed font-serif">
-                  Un appel découverte sans engagement. Parlons de vous, de vos enjeux, de vos espoirs.
+                  Appel de découverte 15min gratuit. Parlons de vous, de vos enjeux, de vos espoirs.
                 </p>
                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-white border-r border-b border-[#E5E1D8] rotate-45 -mt-1"></div>
               </div>
@@ -221,8 +193,8 @@ export default function Home() {
                  <Gift className="w-6 h-6" />
               </div>
               <div>
-                 <h4 className="font-bold text-[#7E8D85] text-lg">DISCOVERY 15MIN CALL</h4>
-                 <p className="text-xs uppercase tracking-widest text-[#5D6D7E]">Gratuit</p>
+                 <h4 className="font-bold text-[#7E8D85] text-lg">APPEL DE DÉCOUVERTE</h4>
+                 <p className="text-xs uppercase tracking-widest text-[#5D6D7E]">15 Min Gratuit</p>
               </div>
            </motion.div>
         </div>
@@ -238,14 +210,14 @@ export default function Home() {
             className="mb-20"
           >
             <h2 className="text-3xl md:text-4xl font-serif text-[#1A1A1A] leading-tight mb-6">
-              Le Changement Commence Quand Vous Êtes Prêt
+              Vous Savez Que Ça Doit Changer. Venez Faire Le Travail.
             </h2>
             <p className="text-[#5D6D7E] max-w-2xl mx-auto text-sm leading-relaxed italic font-serif">
               Trois approches. Trois solutions. Une seule certitude : vous ne serez plus jamais dans le même endroit.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 title: "INDIVIDUAL THERAPY",
@@ -279,28 +251,6 @@ export default function Home() {
                 price: "600 MAD",
                 duration: "60 MIN",
                 description: "Guérissez ensemble. Transformez les blessures en forces, les conflits en compréhension, l'isolement en unité."
-              },
-              {
-                title: "SOS SESSION",
-                icon: <div className="relative w-12 h-12 flex items-center justify-center">
-                  <div className="absolute inset-0 bg-[#A0522D] rounded-full opacity-40 scale-150"></div>
-                  <Zap className="w-8 h-8 text-[#A0522D] relative z-10" />
-                </div>,
-                color: "bg-[#A0522D]",
-                price: "200 MAD",
-                duration: "30 MIN",
-                description: "Urgence émotionnelle. Action immédiate. Retrouvez votre équilibre maintenant, pas demain."
-              },
-              {
-                title: "DISCOVERY 15MIN CALL",
-                icon: <div className="relative w-12 h-12 flex items-center justify-center">
-                  <div className="absolute inset-0 bg-[#7E8D85] rounded-full opacity-40 scale-150"></div>
-                  <Gift className="w-8 h-8 text-[#7E8D85] relative z-10" />
-                </div>,
-                color: "bg-[#7E8D85]",
-                price: "GRATUIT",
-                duration: "15 MIN",
-                description: "Un appel découverte sans engagement. Parlons de vous, de vos enjeux, de vos espoirs."
               }
             ].map((service, idx) => (
               <motion.div 
