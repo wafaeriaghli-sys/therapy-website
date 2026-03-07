@@ -126,7 +126,7 @@ export default function Home() {
                   onClick={() => handleBookNow("Individual Therapy")}
                   className="bg-[#E5E1D8] hover:bg-[#D9D5CC] text-[#1A1A1A] rounded-full px-10 py-6 text-[11px] font-medium uppercase tracking-widest transition-all shadow-sm border border-[#D9D5CC]/50"
                 >
-                  Je Réserve Ma Séance
+                  JE RÉSERVE MA SESSION
                 </Button>
               </div>
             </div>
@@ -155,8 +155,8 @@ export default function Home() {
         >
           {/* Tooltip Description on Hover */}
           <div className="absolute bottom-full right-2 mb-4 w-64 p-4 bg-white rounded-2xl shadow-lg border border-[#E5E1D8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-[110]">
-            <p className="text-xs text-[#5D6D7E] leading-relaxed font-serif">
-              Appel de découverte 15min gratuit. Parlons de vous, de vos enjeux, de vos espoirs. Sans engagement.
+            <p className="text-xs text-[#5D6D7E] leading-relaxed font-serif font-bold">
+              ✨ <span className="font-serif">Un cadeau pour vous</span> ✨<br/><br/>15 minutes GRATUITES avec Wafae. Parlons de ce qui compte vraiment. Zéro engagement.
             </p>
             <div className="absolute top-full right-12 w-3 h-3 bg-white border-r border-b border-[#E5E1D8] rotate-45 -mt-1.5"></div>
           </div>
@@ -164,11 +164,14 @@ export default function Home() {
           {/* Animated Multi-layered Glow with Pulse */}
           <div className="absolute inset-0 bg-[#7E8D85] rounded-full blur-2xl opacity-15 group-hover:opacity-40 transition-all duration-500 animate-pulse"></div>
           
-          {/* Modern Circular Badge */}
-          <div className="bg-gradient-to-br from-[#7E8D85] to-[#6B7A72] text-white w-16 h-16 rounded-full shadow-[0_10px_30px_rgba(126,141,133,0.35)] border border-white/50 flex flex-col items-center justify-center relative overflow-hidden group-hover:border-white/70 group-hover:shadow-[0_15px_40px_rgba(126,141,133,0.4)] transition-all">
+          {/* Modern Creative Circular Badge */}
+          <div className="bg-gradient-to-br from-[#7E8D85] to-[#6B7A72] text-white w-20 h-20 rounded-full shadow-[0_15px_40px_rgba(126,141,133,0.4)] border-2 border-white/60 flex flex-col items-center justify-center relative overflow-hidden group-hover:border-white/80 group-hover:shadow-[0_20px_50px_rgba(126,141,133,0.5)] group-hover:scale-110 transition-all">
             <div className="absolute inset-0 bg-white/5 rounded-full"></div>
-            <Gift className="w-6 h-6 text-white relative z-10" />
-            <p className="text-[7px] font-black tracking-wide uppercase text-white/90 mt-0.5 relative z-10">OFFERT</p>
+            <div className="relative z-10 flex flex-col items-center justify-center">
+              <Gift className="w-7 h-7 text-white mb-0.5" />
+              <p className="text-[8px] font-black tracking-widest uppercase text-white/95">15 MIN</p>
+              <p className="text-[7px] font-black tracking-widest uppercase text-white/95">OFFERT</p>
+            </div>
           </div>
         </motion.div>
       </motion.div>
@@ -193,8 +196,8 @@ export default function Home() {
                  <Gift className="w-6 h-6" />
               </div>
               <div>
-                 <h4 className="font-bold text-[#7E8D85] text-lg">APPEL DE DÉCOUVERTE</h4>
-                 <p className="text-xs uppercase tracking-widest text-[#5D6D7E]">15 Min Gratuit</p>
+                 <h4 className="font-bold text-[#7E8D85] text-lg">APPEL DE 15MIN OFFERT</h4>
+                 <p className="text-xs uppercase tracking-widest text-[#5D6D7E]">Sans Engagement</p>
               </div>
            </motion.div>
         </div>
@@ -210,14 +213,14 @@ export default function Home() {
             className="mb-20"
           >
             <h2 className="text-3xl md:text-4xl font-serif text-[#1A1A1A] leading-tight mb-6">
-              Vous Savez Que Ça Doit Changer. Venez Faire Le Travail.
+              Votre Vie Peut Être Différente. Commençons Aujourd'hui.
             </h2>
             <p className="text-[#5D6D7E] max-w-2xl mx-auto text-sm leading-relaxed italic font-serif">
               Trois approches. Trois solutions. Une seule certitude : vous ne serez plus jamais dans le même endroit.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               {
                 title: "INDIVIDUAL THERAPY",
@@ -251,6 +254,17 @@ export default function Home() {
                 price: "600 MAD",
                 duration: "60 MIN",
                 description: "Guérissez ensemble. Transformez les blessures en forces, les conflits en compréhension, l'isolement en unité."
+              },
+              {
+                title: "SOS SESSION",
+                icon: <div className="relative w-12 h-12 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-[#A0522D] rounded-full opacity-40 scale-150"></div>
+                  <Zap className="w-8 h-8 text-[#A0522D] relative z-10" />
+                </div>,
+                color: "bg-[#A0522D]",
+                price: "200 MAD",
+                duration: "30 MIN",
+                description: "Urgence émotionnelle. Action immédiate. Retrouvez votre équilibre maintenant, pas demain."
               }
             ].map((service, idx) => (
               <motion.div 
