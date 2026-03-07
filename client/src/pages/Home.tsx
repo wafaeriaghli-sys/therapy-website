@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Leaf, Heart, Users, User, Mail, MapPin, Phone, Instagram, Facebook, Loader2, Zap, Clock, ShieldCheck } from "lucide-react";
+import { Leaf, Heart, Users, User, Mail, MapPin, Phone, Instagram, Facebook, Loader2, Zap, Clock, ShieldCheck, Gift } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -43,7 +43,7 @@ export default function Home() {
       <nav className="fixed w-full z-50 bg-[#FAF9F6]/90 backdrop-blur-md border-b border-[#E2E2E2] transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="font-serif font-bold text-2xl tracking-widest text-[#4B5320]">STILLPOINT THERAPY</span>
+            <span className="font-serif font-bold text-2xl tracking-widest text-[#4B5320]">WAFAE EL OIRIAGHLI</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-[10px] font-black uppercase tracking-[0.4em] text-[#5D6D7E]">
             <a href="#about" className="hover:text-[#A0522D] transition-all duration-300 relative group">
@@ -126,7 +126,7 @@ export default function Home() {
                   onClick={() => handleBookNow("Individual Therapy")}
                   className="bg-[#E5E1D8] hover:bg-[#D9D5CC] text-[#1A1A1A] rounded-full px-10 py-6 text-[11px] font-medium uppercase tracking-widest transition-all shadow-sm border border-[#D9D5CC]/50"
                 >
-                  Let's Connect
+                  JE RESERVE MA SESSION
                 </Button>
               </div>
             </div>
@@ -150,27 +150,27 @@ export default function Home() {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          onClick={() => handleBookNow("Free 15min Call")}
+          onClick={() => handleBookNow("DISCOVERY 15MIN CALL")}
           className="relative cursor-pointer group"
         >
           {/* Tooltip Description on Hover */}
-          <div className="absolute bottom-full right-0 mb-4 w-64 p-4 bg-white rounded-2xl shadow-xl border border-[#E5E1D8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-[110]">
+          <div className="absolute bottom-full right-0 mb-3 w-56 p-3 bg-white rounded-xl shadow-lg border border-[#E5E1D8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-[110]">
             <p className="text-xs text-[#5D6D7E] leading-relaxed font-serif">
-              Vous hésitez ? Vous Avez des questions ? On se parle 15 minutes. C'est offert, sans engagement et totalement confidentiel.
+              Un appel découverte sans engagement. Parlons de vous, de vos enjeux, de vos espoirs.
             </p>
-            <div className="absolute top-full right-8 w-3 h-3 bg-white border-r border-b border-[#E5E1D8] rotate-45 -mt-1.5"></div>
+            <div className="absolute top-full right-6 w-2.5 h-2.5 bg-white border-r border-b border-[#E5E1D8] rotate-45 -mt-1"></div>
           </div>
 
           {/* Animated Multi-layered Glow */}
-          <div className="absolute inset-0 bg-[#7E8D85] rounded-2xl blur-2xl opacity-10 group-hover:opacity-40 transition-all duration-500 animate-pulse"></div>
+          <div className="absolute inset-0 bg-[#7E8D85] rounded-xl blur-xl opacity-10 group-hover:opacity-30 transition-all duration-500 animate-pulse"></div>
           
-          <div className="bg-[#7E8D85] text-white px-6 py-4 rounded-2xl shadow-[0_20px_40px_rgba(126,141,133,0.3)] border border-white/40 flex items-center gap-4 relative overflow-hidden group-hover:border-white/60 transition-all">
-            <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0 border border-white/10">
-              <Clock className="w-5 h-5 text-white" />
+          <div className="bg-[#7E8D85] text-white px-4 py-3 rounded-xl shadow-[0_15px_30px_rgba(126,141,133,0.2)] border border-white/40 flex items-center gap-3 relative overflow-hidden group-hover:border-white/60 transition-all">
+            <div className="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0 border border-white/10">
+              <Gift className="w-4 h-4 text-white" />
             </div>
             <div className="relative z-10">
-              <p className="text-[9px] font-black tracking-[0.2em] uppercase text-[#F2EDE4] mb-0.5 opacity-90">APPEL OFFERT</p>
-              <p className="font-black text-sm leading-tight tracking-tight uppercase">15 MINUTES</p>
+              <p className="text-[8px] font-black tracking-[0.15em] uppercase text-[#F2EDE4] mb-0.5 opacity-90">CADEAU</p>
+              <p className="font-black text-xs leading-tight tracking-tight uppercase">15 MIN</p>
             </div>
           </div>
         </motion.div>
@@ -178,18 +178,18 @@ export default function Home() {
 
       {/* Special Offers / Branding Section */}
       <section className="py-12 bg-white/40 border-y border-[#E5E1D8]">
-        <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-8 md:gap-24">
+        <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-8 md:gap-16">
            <motion.div 
              whileHover={{ scale: 1.05 }}
-             onClick={() => handleBookNow("SOS Session")}
+             onClick={() => handleBookNow("SOS SESSION")}
              className="flex items-center gap-4 cursor-pointer group relative"
            >
               {/* Tooltip Description on Hover */}
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-4 bg-white rounded-2xl shadow-xl border border-[#E5E1D8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-56 p-3 bg-white rounded-xl shadow-lg border border-[#E5E1D8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
                 <p className="text-xs text-[#5D6D7E] leading-relaxed font-serif">
-                  Crise d'angoisse, rupture brutale ou saturation : Réservez votre créneau d'urgence maintenant.
+                  Urgence émotionnelle. Action immédiate. Retrouvez votre équilibre maintenant, pas demain.
                 </p>
-                <div className="absolute top-full left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-r border-b border-[#E5E1D8] rotate-45 -mt-1.5"></div>
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-white border-r border-b border-[#E5E1D8] rotate-45 -mt-1"></div>
               </div>
 
               <div className="w-14 h-14 rounded-full bg-[#A0522D] flex items-center justify-center text-white shadow-lg group-hover:bg-[#8B4513] transition-colors">
@@ -197,8 +197,8 @@ export default function Home() {
               </div>
               <div>
                  <div className="flex items-center gap-2">
-                    <h4 className="font-bold text-[#A0522D] text-lg">SÉANCE SOS</h4>
-                    <span className="text-xs font-serif italic text-[#A0522D]">$200</span>
+                    <h4 className="font-bold text-[#A0522D] text-lg">SOS SESSION</h4>
+                    <span className="text-xs font-serif italic text-[#A0522D]">200 MAD</span>
                  </div>
                  <p className="text-xs uppercase tracking-widest text-[#5D6D7E]">Soutien Immédiat</p>
               </div>
@@ -206,23 +206,23 @@ export default function Home() {
 
            <motion.div 
              whileHover={{ scale: 1.05 }}
-             onClick={() => handleBookNow("Free 15min Call")}
+             onClick={() => handleBookNow("DISCOVERY 15MIN CALL")}
              className="flex items-center gap-4 cursor-pointer group relative"
            >
               {/* Tooltip Description on Hover */}
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 p-4 bg-white rounded-2xl shadow-xl border border-[#E5E1D8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-56 p-3 bg-white rounded-xl shadow-lg border border-[#E5E1D8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
                 <p className="text-xs text-[#5D6D7E] leading-relaxed font-serif">
-                  Vous hésitez ? Vous Avez des questions ? On se parle 15 minutes. C'est offert, sans engagement et totalement confidentiel.
+                  Un appel découverte sans engagement. Parlons de vous, de vos enjeux, de vos espoirs.
                 </p>
-                <div className="absolute top-full left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-r border-b border-[#E5E1D8] rotate-45 -mt-1.5"></div>
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-white border-r border-b border-[#E5E1D8] rotate-45 -mt-1"></div>
               </div>
 
               <div className="w-14 h-14 rounded-full bg-[#7E8D85] flex items-center justify-center text-white shadow-lg group-hover:bg-[#6B7A72] transition-colors">
-                 <Clock className="w-6 h-6" />
+                 <Gift className="w-6 h-6" />
               </div>
               <div>
-                 <h4 className="font-bold text-[#7E8D85] text-lg">APPEL DE 15MIN OFFERT</h4>
-                 <p className="text-xs uppercase tracking-widest text-[#5D6D7E]">Premier Contact</p>
+                 <h4 className="font-bold text-[#7E8D85] text-lg">DISCOVERY 15MIN CALL</h4>
+                 <p className="text-xs uppercase tracking-widest text-[#5D6D7E]">Gratuit</p>
               </div>
            </motion.div>
         </div>
@@ -245,7 +245,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {[
               {
                 title: "INDIVIDUAL THERAPY",
@@ -256,7 +256,7 @@ export default function Home() {
                 color: "bg-[#E5E1D8]", // Beige
                 price: "300 MAD",
                 duration: "50 MIN",
-                description: "Explorez vos patterns profonds, brisez les cycles répétitifs et découvrez enfin qui vous êtes vraiment. C'est votre moment."
+                description: "Explorez vos patterns profonds, brisez les cycles répétitifs et découvrez enfin qui vous êtes vraiment."
               },
               {
                 title: "COUPLES THERAPY",
@@ -279,6 +279,28 @@ export default function Home() {
                 price: "600 MAD",
                 duration: "60 MIN",
                 description: "Guérissez ensemble. Transformez les blessures en forces, les conflits en compréhension, l'isolement en unité."
+              },
+              {
+                title: "SOS SESSION",
+                icon: <div className="relative w-12 h-12 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-[#A0522D] rounded-full opacity-40 scale-150"></div>
+                  <Zap className="w-8 h-8 text-[#A0522D] relative z-10" />
+                </div>,
+                color: "bg-[#A0522D]",
+                price: "200 MAD",
+                duration: "30 MIN",
+                description: "Urgence émotionnelle. Action immédiate. Retrouvez votre équilibre maintenant, pas demain."
+              },
+              {
+                title: "DISCOVERY 15MIN CALL",
+                icon: <div className="relative w-12 h-12 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-[#7E8D85] rounded-full opacity-40 scale-150"></div>
+                  <Gift className="w-8 h-8 text-[#7E8D85] relative z-10" />
+                </div>,
+                color: "bg-[#7E8D85]",
+                price: "GRATUIT",
+                duration: "15 MIN",
+                description: "Un appel découverte sans engagement. Parlons de vous, de vos enjeux, de vos espoirs."
               }
             ].map((service, idx) => (
               <motion.div 
