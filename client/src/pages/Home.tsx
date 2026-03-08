@@ -200,6 +200,31 @@ export default function Home() {
                  <p className="text-xs uppercase tracking-widest text-[#5D6D7E]">Sans Engagement</p>
               </div>
            </motion.div>
+
+           <motion.div 
+             whileHover={{ scale: 1.05 }}
+             onClick={() => handleBookNow("SOS SESSION")}
+             className="flex items-center gap-4 cursor-pointer group relative"
+           >
+              {/* Tooltip Description on Hover */}
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-56 p-3 bg-white rounded-xl shadow-lg border border-[#E5E1D8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
+                <p className="text-xs text-[#5D6D7E] leading-relaxed font-serif">
+                  Urgence émotionnelle. Action immédiate. Retrouvez votre équilibre maintenant, pas demain.
+                </p>
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-white border-r border-b border-[#E5E1D8] rotate-45 -mt-1"></div>
+              </div>
+
+              <div className="w-14 h-14 rounded-full bg-[#A0522D] flex items-center justify-center text-white shadow-lg group-hover:bg-[#8B4513] transition-colors">
+                 <Zap className="w-6 h-6 animate-pulse" />
+              </div>
+              <div>
+                 <div className="flex items-center gap-2">
+                    <h4 className="font-bold text-[#A0522D] text-lg">SOS SESSION</h4>
+                    <span className="text-xs font-serif italic text-[#A0522D]">200 MAD</span>
+                 </div>
+                 <p className="text-xs uppercase tracking-widest text-[#5D6D7E]">Soutien Immédiat</p>
+              </div>
+           </motion.div>
         </div>
       </section>
 
@@ -220,7 +245,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 title: "INDIVIDUAL THERAPY",
@@ -254,17 +279,6 @@ export default function Home() {
                 price: "600 MAD",
                 duration: "60 MIN",
                 description: "Guérissez ensemble. Transformez les blessures en forces, les conflits en compréhension, l'isolement en unité."
-              },
-              {
-                title: "SOS SESSION",
-                icon: <div className="relative w-12 h-12 flex items-center justify-center">
-                  <div className="absolute inset-0 bg-[#A0522D] rounded-full opacity-40 scale-150"></div>
-                  <Zap className="w-8 h-8 text-[#A0522D] relative z-10" />
-                </div>,
-                color: "bg-[#A0522D]",
-                price: "200 MAD",
-                duration: "30 MIN",
-                description: "Urgence émotionnelle. Action immédiate. Retrouvez votre équilibre maintenant, pas demain."
               }
             ].map((service, idx) => (
               <motion.div 
