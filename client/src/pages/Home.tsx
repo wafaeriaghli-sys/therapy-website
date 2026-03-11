@@ -111,7 +111,7 @@ export default function Home() {
             <div className="relative p-10 lg:p-16 max-w-xl group">
               {/* Modern Decorative Frame based on Screenshot */}
               <div className="absolute inset-0 border border-[#E5E1D8] rounded-[4rem] pointer-events-none"></div>
-              <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-24 h-48 bg-[#A0522D] rounded-full opacity-90"></div>
+              <div className="absolute -left-8 top-1/2 -translate-y-1/2 w-1.5 h-40 bg-[#A0522D] rounded-full opacity-80"></div>
               
               <div className="relative z-10">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#1A1A1A] leading-tight mb-8 font-medium tracking-tight">
@@ -119,7 +119,7 @@ export default function Home() {
                 </h1>
                 
                 <p className="text-[#5D6D7E] text-lg md:text-xl leading-relaxed font-serif italic mb-10">
-                  Je m'appelle <span className="text-[#4B5320] font-bold not-italic">Wafae El Oiriaghli</span>. Je suis psychothérapeute. Ma mission n'est pas de t'écouter hocher la tête, mais de te donner les outils pour que tu n'aies plus besoin de moi.
+                  Je suis Wafae El Oiriaghli, Psychothérapeute. Je ne me contente pas de hocher la tête en silence en attendant que l'heure passe. Mon objectif ? vous doter des techniques durables pour que vous n'ayez plus besoin de moi.
                 </p>
 
                 <Button 
@@ -187,7 +187,7 @@ export default function Home() {
               {/* Tooltip Description on Hover */}
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-56 p-3 bg-white rounded-xl shadow-lg border border-[#E5E1D8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
                 <p className="text-xs text-[#5D6D7E] leading-relaxed font-serif">
-                  Appel de découverte 15min gratuit. Parlons de vous, de vos enjeux, de vos espoirs.
+                  15 minutes d'échange gratuit pour lever vos doutes, poser vos questions.
                 </p>
                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-white border-r border-b border-[#E5E1D8] rotate-45 -mt-1"></div>
               </div>
@@ -209,7 +209,7 @@ export default function Home() {
               {/* Tooltip Description on Hover */}
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-56 p-3 bg-white rounded-xl shadow-lg border border-[#E5E1D8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
                 <p className="text-xs text-[#5D6D7E] leading-relaxed font-serif">
-                  Urgence émotionnelle. Action immédiate. Retrouvez votre équilibre maintenant, pas demain.
+                  Urgence émotionnelle. Action immédiate. Retrouvez votre équilibre maintenant.
                 </p>
                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-white border-r border-b border-[#E5E1D8] rotate-45 -mt-1"></div>
               </div>
@@ -220,7 +220,7 @@ export default function Home() {
               <div>
                  <div className="flex items-center gap-2">
                     <h4 className="font-bold text-[#A0522D] text-lg">SOS SESSION</h4>
-                    <span className="text-xs font-serif italic text-[#A0522D]">200 MAD</span>
+                    <span className="text-xs font-serif italic text-[#A0522D]">600 MAD</span>
                  </div>
                  <p className="text-xs uppercase tracking-widest text-[#5D6D7E]">Soutien Immédiat</p>
               </div>
