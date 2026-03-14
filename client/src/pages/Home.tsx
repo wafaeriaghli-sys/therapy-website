@@ -115,12 +115,23 @@ export default function Home() {
               
               <div className="relative z-10">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#1A1A1A] leading-tight mb-8 font-medium tracking-tight">
-                  Fatigué de faire semblant que tout va bien ?
+                  Fatigué(e) de faire semblant que tout va bien ?
                 </h1>
                 
-                <p className="text-[#5D6D7E] text-lg md:text-xl leading-relaxed font-serif italic mb-10">
-                  Je suis Wafae El Oiriaghli, Psychothérapeute. Je ne me contente pas de hocher la tête en silence en attendant que l'heure passe. Mon objectif ? vous doter des techniques durables pour que vous n'ayez plus besoin de moi.
+                <p className="text-[#5D6D7E] text-xl md:text-2xl leading-relaxed font-serif italic mb-6">
+                  Ici, vous pouvez enfin déposer ce qui tourne en boucle.
                 </p>
+
+                <div className="flex items-center gap-3 mb-10">
+                  <div className="w-8 h-px bg-[#A0522D] opacity-60"></div>
+                  <p className="text-[#4B5320] font-serif text-sm tracking-widest uppercase font-semibold">
+                    Wafae El Oiriaghli
+                  </p>
+                  <div className="w-1 h-1 rounded-full bg-[#A0522D] opacity-60"></div>
+                  <p className="text-[#5D6D7E] font-serif text-sm tracking-wider italic">
+                    Psychothérapeute
+                  </p>
+                </div>
 
                 <Button 
                   onClick={() => handleBookNow("Individual Therapy")}
@@ -153,25 +164,15 @@ export default function Home() {
           onClick={() => handleBookNow("DISCOVERY 15MIN CALL")}
           className="relative cursor-pointer group"
         >
-          {/* Tooltip Description on Hover */}
-          <div className="absolute bottom-full right-2 mb-4 w-64 p-4 bg-white rounded-2xl shadow-lg border border-[#E5E1D8] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-[110]">
-            <p className="text-xs text-[#5D6D7E] leading-relaxed font-serif font-bold">
-              ✨ <span className="font-serif">Un cadeau pour vous</span> ✨<br/><br/>15 minutes GRATUITES avec Wafae. Parlons de ce qui compte vraiment. Zéro engagement.
-            </p>
-            <div className="absolute top-full right-12 w-3 h-3 bg-white border-r border-b border-[#E5E1D8] rotate-45 -mt-1.5"></div>
-          </div>
-
-          {/* Animated Multi-layered Glow with Pulse */}
-          <div className="absolute inset-0 bg-[#7E8D85] rounded-full blur-2xl opacity-15 group-hover:opacity-40 transition-all duration-500 animate-pulse"></div>
+          {/* Animated Glow */}
+          <div className="absolute inset-0 bg-[#7E8D85] rounded-full blur-2xl opacity-10 group-hover:opacity-25 transition-all duration-500"></div>
           
-          {/* Modern Creative Circular Badge */}
-          <div className="bg-gradient-to-br from-[#7E8D85] to-[#6B7A72] text-white w-20 h-20 rounded-full shadow-[0_15px_40px_rgba(126,141,133,0.4)] border-2 border-white/60 flex flex-col items-center justify-center relative overflow-hidden group-hover:border-white/80 group-hover:shadow-[0_20px_50px_rgba(126,141,133,0.5)] group-hover:scale-110 transition-all">
-            <div className="absolute inset-0 bg-white/5 rounded-full"></div>
-            <div className="relative z-10 flex flex-col items-center justify-center">
-              <Gift className="w-7 h-7 text-white mb-0.5" />
-              <p className="text-[8px] font-black tracking-widest uppercase text-white/95">15 MIN</p>
-              <p className="text-[7px] font-black tracking-widest uppercase text-white/95">OFFERT</p>
+          {/* Pill Button */}
+          <div className="bg-gradient-to-r from-[#7E8D85] to-[#6B7A72] text-white pl-4 pr-5 py-3 rounded-full shadow-[0_10px_30px_rgba(126,141,133,0.35)] border border-white/40 flex items-center gap-3 relative group-hover:shadow-[0_15px_40px_rgba(126,141,133,0.45)] group-hover:border-white/60 transition-all">
+            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+              <Phone className="w-4 h-4 text-white" />
             </div>
+            <p className="text-[11px] font-bold tracking-wide whitespace-nowrap">👉 Réserver mon appel découverte de 15min</p>
           </div>
         </motion.div>
       </motion.div>
@@ -320,18 +321,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonial Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-           <div className="flex justify-center gap-1 mb-8 text-[#E5E1D8]">
-              {[...Array(5)].map((_, i) => <ShieldCheck key={i} className="w-4 h-4 fill-current" />)}
-           </div>
-           <h2 className="text-3xl md:text-4xl font-serif text-[#2C3E50] leading-relaxed mb-12 italic">
-             "Après des années de doute, j'ai enfin trouvé quelqu'un qui m'écoute vraiment. Pas de jugement. Pas de platitudes. Juste des outils réels pour enfin avancer. Je suis un exemple vivant du changement qui est possible."
-           </h2>
-           <p className="text-sm font-bold tracking-[0.3em] uppercase text-[#2C3E50]">BREAH DESIGNS</p>
-        </div>
-      </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-[#F9F7F2]">
