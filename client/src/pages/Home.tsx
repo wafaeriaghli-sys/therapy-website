@@ -46,16 +46,12 @@ export default function Home() {
             <span className="font-serif font-bold text-2xl tracking-widest text-[#4B5320]">WAFAE EL OIRIAGHLI</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-[10px] font-black uppercase tracking-[0.4em] text-[#5D6D7E]">
-            <a href="#about" className="hover:text-[#A0522D] transition-all duration-300 relative group">
-              À PROPOS
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#A0522D] transition-all duration-300 group-hover:w-full"></span>
-            </a>
             <a href="#services" className="hover:text-[#A0522D] transition-all duration-300 relative group">
               SERVICES
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#A0522D] transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="#testimonials" className="hover:text-[#A0522D] transition-all duration-300 relative group">
-              RESSOURCES
+            <a href="/cabinet" className="hover:text-[#A0522D] transition-all duration-300 relative group">
+              CABINET
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#A0522D] transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a href="#contact" className="hover:text-[#A0522D] transition-all duration-300 relative group">
@@ -194,7 +190,7 @@ export default function Home() {
               </div>
 
               <div className="w-14 h-14 rounded-full bg-[#7E8D85] flex items-center justify-center text-white shadow-lg group-hover:bg-[#6B7A72] transition-colors">
-                 <Gift className="w-6 h-6" />
+                 <Phone className="w-6 h-6" />
               </div>
               <div>
                  <h4 className="font-bold text-[#7E8D85] text-lg">APPEL DE 15MIN OFFERT</h4>
